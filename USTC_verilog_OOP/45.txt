@@ -1,0 +1,30 @@
+module  D_cf(input clk,input d,output reg q=0,output reg qn=1);
+    always@(posedge clk)
+        begin
+        q<=d;
+        qn<=~d;
+        end
+endmodule
+
+
+module top_module (input clk,input x,output z); 
+    wire q1,q2,q3,qn2,qn3;
+    D_cf D1(
+        .clk(clk),
+        .d(x^q1),
+        .q(q1));
+    D_cf D2(
+        .clk(clk),
+        .d(x&qn2),
+        .q(q2),
+        .qn(qn2));
+    D_cf D3(
+        .clk(clk),
+        .d(x|qn3),
+        .q(q3),
+        .qn(qn3));
+    assign z=~(q1|q2|q3);
+    
+  
+endmodule
+有什么错误吗

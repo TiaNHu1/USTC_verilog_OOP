@@ -1,0 +1,22 @@
+module top_module(
+    input a,
+    input b,
+    input c,
+    input d,
+    output out,
+    output out_n   
+); 
+// 请用户在下方编辑代码
+	wire ab;
+    wire cd;
+    wire out1;
+    assign ab=a&b;
+    assign cd=c&d;
+    assign out1=ab|cd;
+    assign out=out1;
+    assign out_n=~out1;
+  
+  
+  
+//用户编辑到此为止
+endmodule

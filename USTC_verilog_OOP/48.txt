@@ -1,0 +1,34 @@
+module top_module (
+    input clk,
+    input reset,    
+    output [3:0] q);
+    
+    wire [3:0] s1;
+    jc_4 JC(
+        .clk(clk),
+        .reset(reset),
+        .q(q),
+        .d(s1)
+    );
+    
+    assign s1=q+1;
+endmodule
+    
+
+    
+
+module jc_4 (
+    input clk,
+    input reset,
+    input [3:0] d,
+    output reg [3:0] q
+);
+    always@(posedge clk or posedge reset) begin
+        if(reset) 
+            q<=4'b0;
+        else 
+            q<=d;
+    end
+    
+endmodule
+

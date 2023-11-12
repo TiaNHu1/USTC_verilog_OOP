@@ -1,0 +1,11 @@
+module top_module (
+    input clk,
+    input in, 
+    output reg out);
+
+    wire s1;
+    assign s1=in^out;
+    always@(posedge clk)begin
+        out<=s1;
+    end
+endmodule

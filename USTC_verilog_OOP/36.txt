@@ -1,0 +1,9 @@
+module top_module (
+    input [7:0] a, b, c, d,
+    output [7:0] min);
+    wire[7:0] s1,s2,s3;
+    assign s1=a<b?a:b;
+    assign s2=s1<c?s1:c;
+    assign min=s2<d?s2:d;
+    
+endmodule

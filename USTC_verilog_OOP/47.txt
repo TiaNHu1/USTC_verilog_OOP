@@ -1,0 +1,34 @@
+module top_module (
+    input clk,
+    input in,
+    output reg out
+);
+
+    wire dout;
+
+    D_ff D_inst(
+            .clk(clk),
+            .d(in),
+            .q(dout)
+        );
+
+    always@(posedge clk) begin
+        out = in^dout;     //当前状态与上一状态不同，说明有边沿     
+    end
+
+
+endmodule
+
+
+module D_ff(
+    input clk,
+    input d,
+    output reg q
+);
+    always@(posedge clk) begin
+
+        q <= d;
+
+    end
+
+endmodule
